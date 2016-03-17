@@ -1,0 +1,13 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "data": {
+        "posts": [
+            {
+                "id": "1",
+                "title": "title",
+                "categoryID": 1
+            }
+        ]
+    }
+}
