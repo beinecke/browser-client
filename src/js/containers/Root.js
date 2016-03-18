@@ -7,6 +7,8 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 import Home from './Home'
+import Community from './Community'
+import Post from './Post'
 import * as reducers from '../reducers'
 
 const loggerMiddleware = createLogger()
@@ -30,6 +32,9 @@ export default class Root extends Component {
             <Provider store={store}>
                 <Router history={history}>
                     <Route path='/' component={Home} />
+                    <Route path='/posts' component={Home} />
+                        <Route path='/posts/:id' component={Post} />
+                    <Route path='/community' component={Community} />
                 </Router>
             </Provider>
         )
