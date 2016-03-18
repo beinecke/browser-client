@@ -1,24 +1,31 @@
 import React, {Component, PropTypes} from 'react'
-import { Link } from 'react-router'
 import { connect } from 'react-redux'
+import AppBar from 'material-ui/lib/app-bar';
+import IconButton from 'material-ui/lib/icon-button';
+import IconMenu from 'material-ui/lib/menus/icon-menu';
+import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
+import MenuItem from 'material-ui/lib/menus/menu-item';
+
 
 export default class Header extends Component {
     render() {
         return (
-            <header>
-                <nav className="navbar navbar-inverse">
-                    <div className="container">
-                        <ul className="nav navbar-nav">
-                            <li>
-                                <Link to="/">首页</Link>
-                            </li>
-                            <li>
-                                <Link to="/community">社区</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
+            <AppBar
+                title="Title"
+                iconElementRight={
+                    <IconMenu
+                        iconButtonElement={
+                            <IconButton>
+                                <MoreVertIcon />
+                            </IconButton>
+                        }
+                        targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                        anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+                    >
+                    <MenuItem primaryText="Sign in" />
+                </IconMenu>
+                }
+            />
         )
     }
 }

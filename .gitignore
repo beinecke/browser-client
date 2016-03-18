@@ -4,4 +4,4 @@ db.json
 bundle.js
 *.log
 node_modules/
-dist/
+build/
