@@ -1,11 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { fetchPost } from '../actions'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 class Post extends Component {
 
     componentDidMount() {
+        const { dispatch, params } = this.props
+        dispatch(fetchPost(params.id))
     }
 
     render() {
@@ -13,9 +16,9 @@ class Post extends Component {
         return (
             <div>
                 <Header />
-                <div className="container">
+                <div>
                     <h1>{post.title}</h1>
-                    <p>id: {params.id}</p>
+                    <p>{post.digest}</p>
                 </div>
                 <Footer />
             </div>
@@ -29,11 +32,17 @@ Post.propTypes = {
 }
 
 function select(state) {
+    const {
+        isFetching,
+        post
+    } = state.post || {
+        isFetching: true,
+        post: {}
+    }
+
     return {
-        isFetching: false,
-        post: {
-            title: 'Title'
-        }
+        isFetching,
+        post
     }
 
 }

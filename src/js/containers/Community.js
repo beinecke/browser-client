@@ -12,7 +12,7 @@ class Community extends Component {
         return (
             <div>
                 <Header />
-                <div className="container">
+                <div>
                     <h1>社区</h1>
                 </div>
                 <Footer />

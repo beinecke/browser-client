@@ -12,9 +12,9 @@ export function nid() {
     return n++
 }
 
-export default function mock(input, responseBody, responseStatus, responseType) {
-    if (typeof input !== 'string') {
-        throw new Error('The mock\'s first argument must be a url.')
+export default function fmock(input, responseBody, responseStatus, responseType) {
+    if (typeof input !== 'string' && !input instanceof RegExp) {
+        throw new Error('The mock\'s first argument must be String or RegExp.')
     }
     if (typeof responseBody == 'undefined') {
         throw new Error('The mock\'s second argument is required.')
@@ -25,6 +25,7 @@ export default function mock(input, responseBody, responseStatus, responseType) 
                     200
     responseType = typeof responseType === 'string' ? responseType : 'text/plain'
     requests[input] = {
+        regexp: input instanceof RegExp ? input : false,
         body: responseBody,
         status: responseStatus,
         type: responseType
@@ -37,8 +38,17 @@ fetch = (input, init) => {
         url = input.url
     }
 
-    if (requests[url]) {
-        response = requests[url]
+    response = requests[url]
+
+    if (!response) {
+        Object.keys(requests).some((requestUrl) => {
+            let matchs = url.match(requests[requestUrl]['regexp'])
+            response = matchs && matchs[0] ? requests[requestUrl] : null
+            return response
+        })
+    }
+
+    if (response) {
         promise = new Promise((resolve, reject) => {
             if (response.status === 200) {
                 resolve(new Response(new Blob([response.body], {type: response.type}), {
