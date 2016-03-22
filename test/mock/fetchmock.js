@@ -1,16 +1,6 @@
-let n = 1
-
 let fetch0 = fetch
 
 let requests = {}
-
-export function sid() {
-    return ((+new Date() + Math.random())*9999).toString(36)
-}
-
-export function nid() {
-    return n++
-}
 
 export default function fmock(input, responseBody, responseStatus, responseType) {
     if (typeof input !== 'string' && !input instanceof RegExp) {
