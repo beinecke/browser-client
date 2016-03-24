@@ -1,5 +1,5 @@
-import fmock from './fetchmock'
 import { Random } from 'mockjs'
+import fmock from './fetchmock'
 
 function wrap(data) {
     return {

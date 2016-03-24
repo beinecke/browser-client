@@ -1,4 +1,4 @@
-let fetch0 = fetch
+let fetch0 = global.fetch
 
 let requests = {}
 
@@ -22,7 +22,7 @@ export default function fmock(input, responseBody, responseStatus, responseType)
     }
 }
 
-fetch = (input, init) => {
+global.fetch = (input, init) => {
     let url = input, promise, response
     if (input instanceof Request) {
         url = input.url
@@ -42,11 +42,13 @@ fetch = (input, init) => {
         promise = new Promise((resolve, reject) => {
             if (response.status === 200) {
                 resolve(new Response(new Blob([response.body], {type: response.type}), {
+                //resolve(new Response(JSON.stringify(response.body), {
                     status: 200,
                     statusText: 'OK'
                 }))
             } else {
                 reject(new Response(new Blob([response.status], {type: response.type}), {
+                //reject(new Response(JSON.stringify(response.body), {
                     status: response.status,
                     statusText: 'Error'
                 }))
@@ -55,5 +57,6 @@ fetch = (input, init) => {
     } else {
         promise = fetch0(input, init)
     }
+
     return promise
 }

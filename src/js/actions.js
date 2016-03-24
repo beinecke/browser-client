@@ -24,7 +24,7 @@ export function requestPosts(categoryID) {
     }
 }
 
-export function receivePosts(categoryID, data) {
+export function receivePosts(data) {
     return {
         type: RECEIVE_POSTS,
         posts : formatData(data).posts
@@ -36,7 +36,8 @@ export function fetchPosts(categoryID) {
         dispatch(requestPosts(categoryID))
         return fetch('/api/posts.json')
             .then(response => response.json())
-            .then(json => dispatch(receivePosts(categoryID, json)))
+            //.then(json => dispatch(receivePosts(JSON.parse(json))))
+            .then(json => dispatch(receivePosts(json)))
     }
 }
 
