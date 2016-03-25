@@ -36,7 +36,6 @@ export function fetchPosts(categoryID) {
         dispatch(requestPosts(categoryID))
         return fetch('/api/posts.json')
             .then(response => response.json())
-            //.then(json => dispatch(receivePosts(JSON.parse(json))))
             .then(json => dispatch(receivePosts(json)))
     }
 }

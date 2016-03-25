@@ -3,8 +3,12 @@ import { assert } from 'chai'
 import jsdom from 'jsdom'
 import { applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
+import nodeFetch from 'node-fetch'
 import * as actions from '../../src/js/actions'
 import fmock from '../mock/fetchmock'
+
+global.Response = nodeFetch.Response
+global.Request = nodeFetch.Request
 
 let window = jsdom.jsdom().defaultView
 const middlewares = [ thunk ]

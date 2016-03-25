@@ -41,14 +41,12 @@ global.fetch = (input, init) => {
     if (response) {
         promise = new Promise((resolve, reject) => {
             if (response.status === 200) {
-                resolve(new Response(new Blob([response.body], {type: response.type}), {
-                //resolve(new Response(JSON.stringify(response.body), {
+                resolve(new Response(response.body, {
                     status: 200,
                     statusText: 'OK'
                 }))
             } else {
-                reject(new Response(new Blob([response.status], {type: response.type}), {
-                //reject(new Response(JSON.stringify(response.body), {
+                reject(new Response(response.body, {
                     status: response.status,
                     statusText: 'Error'
                 }))
