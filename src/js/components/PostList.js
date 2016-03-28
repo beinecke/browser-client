@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from 'react'
-import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import List from 'material-ui/lib/lists/list'
 import ListItem from 'material-ui/lib/lists/list-item'

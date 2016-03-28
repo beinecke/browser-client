@@ -1,7 +1,5 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import { Link } from 'react-router'
-import { connect } from 'react-redux'
-import FontIcon from 'material-ui/lib/font-icon'
 import IconButton from 'material-ui/lib/icon-button'
 import ActionHome from 'material-ui/lib/svg-icons/action/home'
 import SocialLocationCity from 'material-ui/lib/svg-icons/social/location-city'
@@ -26,7 +24,4 @@ export default class Footer extends Component {
             </footer>
         )
     }
-}
-
-Footer.propTypes = {
 }

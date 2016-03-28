@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -21,10 +21,7 @@ class Community extends Component {
     }
 }
 
-Community.propTypes = {
-}
-
-function select(state) {
+function select() {
     return {
     }
 

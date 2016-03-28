@@ -1,13 +1,7 @@
-import { createAction } from 'redux-actions'
-
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const REQUEST_POST = 'REQUEST_POST'
 export const RECEIVE_POST = 'RECEIVE_POST'
-/**
-export const requestPosts = createAction(REQUEST_POSTS);
-export const receivePosts = createAction(RECEIVE_POSTS);
-**/
 
 function formatData(resData) {
     if (resData.code == 0) {

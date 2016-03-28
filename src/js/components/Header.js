@@ -1,10 +1,9 @@
-import React, {Component, PropTypes} from 'react'
-import { connect } from 'react-redux'
-import AppBar from 'material-ui/lib/app-bar';
-import IconButton from 'material-ui/lib/icon-button';
-import IconMenu from 'material-ui/lib/menus/icon-menu';
-import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
-import MenuItem from 'material-ui/lib/menus/menu-item';
+import React, {Component} from 'react'
+import AppBar from 'material-ui/lib/app-bar'
+import IconButton from 'material-ui/lib/icon-button'
+import IconMenu from 'material-ui/lib/menus/icon-menu'
+import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert'
+import MenuItem from 'material-ui/lib/menus/menu-item'
 
 
 export default class Header extends Component {
@@ -28,7 +27,4 @@ export default class Header extends Component {
             />
         )
     }
-}
-
-Header.propTypes = {
 }

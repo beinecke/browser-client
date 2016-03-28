@@ -1,3 +1,3 @@
-import mocks from '../test/mock/mocks'
-import index from './js/index'
+import '../test/mock/mocks'
+import './js/index'
 require('./less/main.less')

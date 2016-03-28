@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { render } from 'react-dom'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+import { Router, Route, hashHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
@@ -14,7 +13,7 @@ import * as reducers from '../reducers'
 const loggerMiddleware = createLogger()
 
 const createStoreWithMiddleware = applyMiddleware(
-    //loggerMiddleware,
+    loggerMiddleware,
     thunkMiddleware
 )(createStore)
 
@@ -22,9 +21,9 @@ const store = createStoreWithMiddleware(
     combineReducers(Object.assign({}, reducers, {
         routing: routerReducer
     }))
-);
+)
 
-const history = syncHistoryWithStore(hashHistory, store);
+const history = syncHistoryWithStore(hashHistory, store)
 
 export default class Root extends Component {
     render() {

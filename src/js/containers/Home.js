@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { requestPosts, receivePosts, fetchPosts } from '../actions'
+import { fetchPosts } from '../actions'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import PostList from '../components/PostList'
@@ -8,7 +8,7 @@ import PostList from '../components/PostList'
 class Home extends Component {
 
     componentDidMount() {
-        const { dispatch, posts } = this.props
+        const { dispatch } = this.props
         dispatch(fetchPosts(1))
     }
 

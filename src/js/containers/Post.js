@@ -12,7 +12,7 @@ class Post extends Component {
     }
 
     render() {
-        const { post, params } = this.props
+        const { post } = this.props
         return (
             <div>
                 <Header />
